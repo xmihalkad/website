@@ -3,28 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zebra Teambuilding 2026 – Brno</title>
-  <meta name="description" content="You're invited to the Zebra team building on 21 October 2026 in Brno.">
+  <title>Zebra Finance Summer Festival – Prague</title>
+  <meta name="description" content="Zebra Finance, you're invited to a summer festival team building on 21 October 2026 in Prague.">
   <style>
     :root {
-      --bg: #ffffff;
-      --fg: #111418;
-      --muted: #5b6470;
-      --card: #f3f5f8;
-      --accent: #0b6cff;
+      --bg: #fff8ec;
+      --fg: #2b1b17;
+      --muted: #7a5f55;
+      --card: #ffffff;
+      --accent: #ff5a3c;
       --on-accent: #ffffff;
-      --hero: #111418;
+      --sun: #ffc83d;
+      --sea: #19b5c4;
+      --pink: #ff7eb6;
+      --hero-from: #ff5a3c;
+      --hero-to: #ffb22e;
       --on-hero: #ffffff;
+      --shadow: rgba(120, 60, 20, .18);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0e1013;
-        --fg: #eef0f3;
-        --muted: #9aa4b2;
-        --card: #181b20;
-        --accent: #4d94ff;
-        --on-accent: #0e1013;
-        --hero: #000000;
+        --bg: #1b1220;
+        --fg: #fff1e3;
+        --muted: #c7a9b5;
+        --card: #2a1b30;
+        --accent: #ff7a5c;
+        --on-accent: #1b1220;
+        --hero-from: #c2255c;
+        --hero-to: #f08a24;
+        --shadow: rgba(0, 0, 0, .4);
       }
     }
     * { box-sizing: border-box; }
@@ -36,68 +43,125 @@
       line-height: 1.6;
     }
     .hero {
-      background:
-        repeating-linear-gradient(115deg, rgba(255,255,255,.06) 0 28px, transparent 28px 64px),
-        var(--hero);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--hero-from), var(--hero-to));
       color: var(--on-hero);
       text-align: center;
-      padding: 96px 16px 80px;
+      padding: 96px 16px 120px;
     }
+    .sun {
+      position: absolute;
+      top: -90px;
+      right: -90px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: var(--sun);
+      opacity: .85;
+      box-shadow: 0 0 0 28px rgba(255,200,61,.3), 0 0 0 64px rgba(255,200,61,.15);
+    }
+    .bunting {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 44px;
+      background:
+        linear-gradient(135deg, var(--sun) 25%, transparent 25%) 0 0 / 44px 44px,
+        linear-gradient(225deg, var(--sea) 25%, transparent 25%) 22px 0 / 44px 44px,
+        linear-gradient(135deg, var(--pink) 25%, transparent 25%) 44px 0 / 88px 44px;
+      opacity: .9;
+    }
+    .hero > *:not(.sun):not(.bunting) { position: relative; }
     .hero .tag {
       letter-spacing: .2em;
       text-transform: uppercase;
       font-size: .85rem;
-      opacity: .75;
+      font-weight: 600;
     }
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.2rem);
-      line-height: 1.1;
+      font-size: clamp(2.4rem, 8vw, 4.8rem);
+      line-height: 1.05;
       margin: 16px 0;
+      text-shadow: 0 3px 0 rgba(0,0,0,.15);
     }
-    .hero p { max-width: 36rem; margin: 0 auto 32px; font-size: 1.15rem; opacity: .9; }
+    .hero p { max-width: 36rem; margin: 0 auto 32px; font-size: 1.15rem; }
+    .wave {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 48px;
+      background: var(--bg);
+      -webkit-mask: radial-gradient(circle at 25px 0, transparent 24px, #000 25px) 0 0 / 50px 100%;
+      mask: radial-gradient(circle at 25px 0, transparent 24px, #000 25px) 0 0 / 50px 100%;
+    }
     .btn {
       display: inline-block;
-      background: var(--accent);
-      color: var(--on-accent);
-      padding: 14px 28px;
+      background: var(--sun);
+      color: #2b1b17;
+      padding: 14px 30px;
       border-radius: 999px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
+      box-shadow: 0 4px 0 rgba(0,0,0,.2);
     }
-    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--sea); outline-offset: 3px; }
     main { max-width: 960px; margin: 0 auto; padding: 0 16px 64px; }
     .facts {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
-      margin-top: -40px;
+      margin-top: -16px;
     }
     .card {
       background: var(--card);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 24px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+      box-shadow: 0 8px 22px var(--shadow);
+      border-top: 6px solid var(--accent);
     }
+    .facts .card:nth-child(2) { border-top-color: var(--sea); }
+    .facts .card:nth-child(3) { border-top-color: var(--pink); }
     .card .label {
       font-size: .8rem;
       text-transform: uppercase;
       letter-spacing: .12em;
       color: var(--muted);
     }
-    .card .value { font-size: 1.5rem; font-weight: 700; margin-top: 4px; }
+    .card .value { font-size: 1.5rem; font-weight: 800; margin-top: 4px; }
     .card .sub { color: var(--muted); }
     section { margin-top: 56px; }
-    h2 { font-size: 1.6rem; margin: 0 0 12px; }
-    a { color: var(--accent); }
+    h2 { font-size: 1.7rem; margin: 0 0 12px; }
+    .vibes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 20px 0 0;
+      list-style: none;
+    }
+    .vibes li {
+      background: var(--card);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-weight: 600;
+      box-shadow: 0 3px 10px var(--shadow);
+    }
+    a { color: var(--accent); font-weight: 600; }
     footer { text-align: center; color: var(--muted); padding: 32px 16px; font-size: .9rem; }
   </style>
 </head>
 <body>
   <header class="hero">
-    <div class="tag">Zebra Technologies · Team building</div>
-    <h1>You're invited!</h1>
-    <p>Step away from the screens and spend a day with your colleagues. Good company, good fun, and a chance to get to know each other better.</p>
+    <div class="bunting" aria-hidden="true"></div>
+    <div class="sun" aria-hidden="true"></div>
+    <div class="tag">Zebra Technologies · Finance</div>
+    <h1>Summer Festival<br>Team Building</h1>
+    <p>Finance team, you're invited! Close the books for a day and join us for a festival of good food, music, games and great company.</p>
     <a class="btn" href="#contact">Questions? Contact us</a>
+    <div class="wave" aria-hidden="true"></div>
   </header>
 
   <main>
@@ -109,19 +173,25 @@
       </div>
       <div class="card">
         <div class="label">Place</div>
-        <div class="value">Brno</div>
+        <div class="value">Prague</div>
         <div class="sub">Czech Republic</div>
       </div>
       <div class="card">
         <div class="label">Who</div>
-        <div class="value">The whole team</div>
-        <div class="sub">Everyone at zebra.com is welcome</div>
+        <div class="value">The whole Finance team</div>
+        <div class="sub">Everyone in Finance is welcome</div>
       </div>
     </div>
 
     <section>
       <h2>What to expect</h2>
-      <p>A relaxed day built around teamwork, shared activities and time to talk outside of meetings. Detailed program, meeting point and schedule will be shared with all attendees before the event.</p>
+      <p>A relaxed day with a summer festival spirit: shared activities, time to talk outside of meetings and a chance to get to know colleagues from across Finance. Detailed program, meeting point and schedule will be shared with all attendees before the event.</p>
+      <ul class="vibes" aria-label="Festival vibes">
+        <li>Music</li>
+        <li>Food &amp; drinks</li>
+        <li>Games</li>
+        <li>Good company</li>
+      </ul>
     </section>
 
     <section id="contact">
@@ -137,6 +207,6 @@
     </section>
   </main>
 
-  <footer>Zebra team building 2026 · Brno</footer>
+  <footer>Zebra Finance Summer Festival 2026 · Prague</footer>
 </body>
 </html>
